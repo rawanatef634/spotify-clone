@@ -71,15 +71,10 @@ app.use("/api/songs", songRoutes);
 app.use("/api/albums", albumRoutes);
 app.use("/api/stats", statRoutes);
 
-app.use("/api/auth", authRoutes);
-app.use("/api/messages", messageRoutes);
-
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../frontend/build")));
-
-  // Fix: Use named wildcard /*splat
+  app.use(express.static(path.join(__dirname, "../frontend/dist")));
   app.get("/*splat", (req, res) => {
-    res.sendFile(path.join(__dirname, "../frontend", "build", "index.html"));
+    res.sendFile(path.resolve(__dirname, "../frontend", "dist", "index.html"));
   });
 }
 
