@@ -22,7 +22,7 @@ interface ChatStore {
 	setSelectedUser: (user: User | null) => void;
 }
 
-const baseURL = import.meta.env.MODE === "development" ? "http://localhost:5000" : "https://spotify-clone-bunx.onrender.com";
+const baseURL = import.meta.env.MODE === "development" ? "http://localhost:5000" : "https://spotify-clone-p9vb.onrender.com";
 
 const socket = io(baseURL, {
 	autoConnect: false,
